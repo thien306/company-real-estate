@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/list.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 
 </head>
 <body>
 <h1>Create transaction</h1>
 <p>
-    <a href="/transactions/create">transaction list</a>
+    <a href="/transactions">transaction list</a>
 </p>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
@@ -17,12 +18,12 @@
 <form th:action="@{/transactions/create}" th:object="${transaction}" method="post">
     <table>
         <tr>
-            <td>Transaction Id: </td>
+            <td>mã giao dịch</td>
             <td><input type="text" th:field="*{id}" placeholder="MGX-0000"/></td>
         </tr>
         <tr>
         <tr>
-            <td>Name: </td>
+            <td>tên khách hành</td>
             <td>
                 <select th:field="*{customer.id}">
                     <option th:each="c: ${customers}" th:value="${c.id}" th:text="${c.name}"></option>
@@ -31,20 +32,30 @@
             </td>
         </tr>
         <tr>
-            <td>Service Type</td>
+            <td>loại bất sản</td>
             <td>
                 <select th:field="*{serviceType.id}">
                     <option th:each="type : ${typeList}" th:value="${type.id}" th:text="${type.name}"></option>
                 </select>
             </td>
         </tr>
+
         <tr>
-            <td>Unit Price:</td>
+            <td>đơn Giá(Vnd)</td>
+            <td>
+                <div class="modal-body">
+                <p>Enter Date: <input type="text" id="datepicker-1"></p>
+            </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>đơn Giá(Vnd)</td>
             <td><input type="text" th:field="*{unitPrice}" placeholder="Minimum: 50$ "/></td>
         </tr>
         <tr>
         <tr>
-            <td>Acreage(m2)</td>
+            <td>diện tích(m2)</td>
             <td><input type="text" th:field="*{acreage}" placeholder="Minimum: 20m2 "/></td>
         </tr>
         <tr>
@@ -53,5 +64,16 @@
         </tr>
     </table>
 </form>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+<script>
+    $(function () {
+        $("#datepicker-1").datepicker();
+    });
+
+</script>
 </body>
 </html>
