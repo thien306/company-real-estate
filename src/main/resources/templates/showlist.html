@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real-Estate-Transaction</title>
+    <link rel="stylesheet" href="/list.css">
+</head>
+<body>
+<h1>Transaction List</h1>
+<div class="action">
+    <a href="http://localhost:8080/transactions/create">Add new transaction</a>
+    <select>
+        <option></option>
+        <option></option>
+    </select>
+</div>
+<div class="showList">
+    <table>
+        <tr>
+            <th>Transaction Id</th>
+            <th>Customer Name</th>
+            <th>Transaction Date</th>
+            <th>Service Type</th>
+            <th>Unit Price</th>
+            <th>Acreage(m2)</th>
+            <th colspan="2">Action</th>
+        </tr>
+        <th:block th:each="transaction : ${transactions}">
+            <tr>
+                <td th:text="${transaction.id}"></td>
+                <td th:text="${transaction.customer.name}"></td>
+                <td th:text="${transaction.date}"></td>
+                <td th:text="${transaction.serviceType.name}"></td>
+                <td th:text="${transaction.unitPrice}"></td>
+                <td th:text="${transaction.acreage}"></td>
+                <td><a th:href="@{/transactions/update/__${transaction.id}__ }">Update</a></td>
+                <td><a th:href="@{/transactions/delete/__${transaction.id}__ }">Delete</a></td>
+            </tr>
+        </th:block>
+    </table>
+</div>
+</body>
+</html>

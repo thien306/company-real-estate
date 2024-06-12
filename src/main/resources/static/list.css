@@ -1,0 +1,100 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #337ab7;
+}
+
+a:hover {
+    color: #23527c;
+}
+
+
+form {
+    margin-top: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    background-color: #337ab7;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #23527c;
+}
+
+
+.showList {
+    margin-top: 20px;
+}
+
+.showList table {
+    width: 100%;
+}
+
+.showList th,.showList td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.showList th {
+    background-color: #f0f0f0;
+}
+
+.showList td a {
+    color: #337ab7;
+}
+
+.showList td a:hover {
+    color: #23527c;
+}
+
+
+
+.action {
+    margin-bottom: 20px;
+}
+
+.action a {
+    margin-right: 10px;
+}
+
+.action select {
+    margin-left: 10px;
+}

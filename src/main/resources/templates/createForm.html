@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/list.css">
+
+</head>
+<body>
+<h1>Create transaction</h1>
+<p>
+    <a href="/transactions/create">transaction list</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/transactions/create}" th:object="${transaction}" method="post">
+    <table>
+        <tr>
+            <td>Transaction Id: </td>
+            <td><input type="text" th:field="*{id}" placeholder="MGX-0000"/></td>
+        </tr>
+        <tr>
+        <tr>
+            <td>Name: </td>
+            <td>
+                <select th:field="*{customer.id}">
+                    <option th:each="c: ${customers}" th:value="${c.id}" th:text="${c.name}"></option>
+                </select>
+
+            </td>
+        </tr>
+        <tr>
+            <td>Service Type</td>
+            <td>
+                <select th:field="*{serviceType.id}">
+                    <option th:each="type : ${typeList}" th:value="${type.id}" th:text="${type.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Unit Price:</td>
+            <td><input type="text" th:field="*{unitPrice}" placeholder="Minimum: 50$ "/></td>
+        </tr>
+        <tr>
+        <tr>
+            <td>Acreage(m2)</td>
+            <td><input type="text" th:field="*{acreage}" placeholder="Minimum: 20m2 "/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Create transaction"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
